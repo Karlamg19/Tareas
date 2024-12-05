@@ -46,14 +46,14 @@ fecha.innerHTML = FECHA.toLocaleDateString('es-MX', {
 function agregarTarea(tarea, id, hecho, eliminar) {
     if (eliminar) {
         return
-    }
+    };
     const realizado = hecho ? check : uncheck;
     const LINE = hecho ? tachado : '';
     const elemento = ` <li id="elemento">
-        <i id="${id}" data="hecho" class="bi ${realizado}"></i>
-        <p class="tarea-lista text ${LINE}">${tarea}</p>
-        <i id="${id}" data="eliminar" class="bi bi-trash3"></i>
-    </li> `
+    <i id="${id}" data="hecho" class="bi ${realizado}"></i>
+    <p class="tarea-lista text ${LINE}">${tarea}</p>
+    <i id="${id}" data="eliminar" class="bi bi-trash3"></i>
+</li> `
     lista.insertAdjacentHTML("beforeend", elemento);
 };
 
@@ -86,13 +86,13 @@ botonAgregar.addEventListener('click', () => {
 });
 lista.addEventListener("click", function (event) {
     const element = event.target;
-    const elementData = element.atributes.data.value;
+    const elementData = element.attributes.data.value;
     if (elementData == "hecho") {
         tareaRealizada(element);
     } else if (elementData == "eliminar") {
         tareaEliminada(element);
     };
-    localStorage.setItem('TODO', JSON.stringify(LIST));
+    localStorage.setItem("TODO", JSON.stringify(LIST));
 });
 
 let data = localStorage.getItem("TODO");
